@@ -15,11 +15,12 @@ import com.loopeer.android.librarys.scrolltable.R;
 import java.util.ArrayList;
 
 public class CustomTableView extends View {
-    private static final String TAG = "CustomTableView";
 
+    //画字和画背景用
     private Paint mPaintTextNormal;
     private Paint mPaintItemBg;
 
+    //各种绘制所需的对象
     private int mTextUnableColor;
     private int mTextNormalColor;
     private int mTextSelectColor;

@@ -172,6 +172,7 @@ public class LeftTitleView extends View {
         invalidate();
     }
 
+    //初始化试图
     public void setUpAttrs(Context context, AttributeSet attrs, int defStyleAttr) {
         if (attrs == null) return;
         final TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.ScrollTableView, defStyleAttr, 0);

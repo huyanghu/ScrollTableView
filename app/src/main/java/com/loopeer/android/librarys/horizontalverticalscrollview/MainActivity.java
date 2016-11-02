@@ -3,6 +3,7 @@ package com.loopeer.android.librarys.horizontalverticalscrollview;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.loopeer.android.librarys.scrolltable.Position;
 import com.loopeer.android.librarys.scrolltable.ScrollTableView;
 
 import java.util.ArrayList;

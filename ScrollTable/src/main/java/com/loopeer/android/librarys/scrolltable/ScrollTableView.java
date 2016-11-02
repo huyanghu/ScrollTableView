@@ -86,6 +86,7 @@ public class ScrollTableView extends LinearLayout implements CustomTableView.OnP
         contentView.setOnPositionChangeListener(this);
     }
 
+    //填充数据
     public void setDatas(ArrayList<String> topTitlesData, ArrayList<String> leftTitlesData, ArrayList<ArrayList<String>> itemData) {
         topTitles.clear();
         leftTitles.clear();
