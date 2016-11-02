@@ -52,6 +52,7 @@ public class LeftTitleView extends View {
         titles = new ArrayList<>();
     }
 
+    //设置各种尺寸
     private void initData() {
         mItemHeight = getResources().getDimensionPixelSize(R.dimen.table_item_height);
         mItemWidth = getResources().getDimensionPixelSize(R.dimen.table_item_width);
@@ -60,6 +61,7 @@ public class LeftTitleView extends View {
         mItemIndicatorLineWidth = getResources().getDimensionPixelSize(R.dimen.table_header_indicator_width);
     }
 
+    //初始化画笔
     private void initPaint() {
         mTextLeftTitleColor = ContextCompat.getColor(getContext(), R.color.table_text_secondary_color);
         mItemIndicatorColor = ContextCompat.getColor(getContext(), R.color.table_divider_color);
@@ -82,8 +84,7 @@ public class LeftTitleView extends View {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        int sizeWidth = MeasureSpec.getSize(widthMeasureSpec);
-        mItemWidth = sizeWidth;
+        mItemWidth =  MeasureSpec.getSize(widthMeasureSpec);
         setMeasuredDimension(mItemWidth, row * mItemHeight + (row + 1) * mItemMargin);
     }
 

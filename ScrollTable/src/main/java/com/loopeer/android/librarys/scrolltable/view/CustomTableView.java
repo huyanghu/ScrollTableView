@@ -28,15 +28,18 @@ public class CustomTableView extends View {
     private int mItemBgSelectColor;
     private float mTextNormal;
 
+
     private int mItemHeight;
     private int mItemWidth;
     private int mItemMargin;
+    //数据集合
     private ArrayList<ArrayList<String>> datas;
 
     private int row = 20;
     private int column = 10;
-
+    //被选中的集合
     private ArrayList<Position> selectPositions;
+    //选中的监听事件
     private OnPositionClickListener mPositionChangeListener;
 
     public CustomTableView(Context context) {
@@ -61,12 +64,14 @@ public class CustomTableView extends View {
         selectPositions = new ArrayList<>();
     }
 
+    //初始化尺寸
     private void initData() {
         mItemHeight = getResources().getDimensionPixelSize(R.dimen.table_item_height);
         mItemWidth = getResources().getDimensionPixelSize(R.dimen.table_item_width);
         mItemMargin = getResources().getDimensionPixelSize(R.dimen.table_item_margin);
     }
 
+    //初始化画笔
     private void initPaint() {
         mTextNormalColor = ContextCompat.getColor(getContext(), R.color.table_text_normal_color);
         mTextUnableColor = ContextCompat.getColor(getContext(), R.color.table_text_unable_color);
@@ -84,21 +89,23 @@ public class CustomTableView extends View {
         mPaintItemBg.setStyle(Paint.Style.FILL);
     }
 
+    //大小计算
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-
+        //(间距总和+宽度总和),(高度总和+间距总和)
         setMeasuredDimension(column * mItemWidth + (column - 1) * mItemMargin, row * mItemHeight + row * mItemMargin);
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-
+        //绘制每个子框体
         drawItem(canvas);
 
     }
 
+    //实际画框的操作，循环画框，也就是说在初始化时所有的ui已经画出来了只是没滑到的时候不显示而已
     private void drawItem(Canvas canvas) {
         for (int rowIndex = 0; rowIndex < row; rowIndex++) {
             for (int columnIndex = 0; columnIndex < column; columnIndex++) {
@@ -116,12 +123,13 @@ public class CustomTableView extends View {
                 float textWidth = mPaintTextNormal.measureText(content);
                 float y = top + mItemHeight - (mItemHeight - fontHeight) / 2 - fontMetrics.bottom;
                 float x = left + mItemWidth / 2 - textWidth / 2;
-
+                //画字
                 canvas.drawText(content, x, y, mPaintTextNormal);
             }
         }
     }
 
+    //获取 传入行，列后获取具体的值
     private String getShowData(int rowIndex, int columnIndex) {
         if (datas.size() > rowIndex) {
             return datas.get(rowIndex).size() > columnIndex ? datas.get(rowIndex).get(columnIndex) : "";
@@ -130,6 +138,7 @@ public class CustomTableView extends View {
         }
     }
 
+    //根据逻辑设置画笔颜色
     private void adJustSelectPaintColor(int columnIndex, int rowIndex) {
         if (selectPositions != null && selectPositions.contains(new Position(columnIndex, rowIndex))) {
             mPaintTextNormal.setColor(mTextSelectColor);
@@ -164,6 +173,10 @@ public class CustomTableView extends View {
         invalidate();
     }
 
+    public ArrayList<Position> getSelectPositions() {
+        return selectPositions;
+    }
+
     public boolean onTouchEvent(MotionEvent event) {
         Position position = getPositionFromLocation(event.getX(), event.getY());
         if (position == null) {
@@ -182,6 +195,7 @@ public class CustomTableView extends View {
         return true;
     }
 
+    //用于判断按在了第几个块
     public Position getPositionFromLocation(float x, float y) {
 
         if (x > getWidth()) {

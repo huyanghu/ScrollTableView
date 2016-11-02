@@ -3,6 +3,7 @@ package com.loopeer.android.librarys.scrolltable;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.widget.LinearLayout;
 
@@ -56,6 +57,7 @@ public class ScrollTableView extends LinearLayout implements CustomTableView.OnP
         a.recycle();
     }
 
+    //同步了2个横向 2个纵向滚动的行为
     private void setUpView() {
         scrollHeaderHorizontal = (IHorizontalScrollView) findViewById(R.id.scroll_header_horizontal);
         scrollHorizontal = (IHorizontalScrollView) findViewById(R.id.scroll_horizontal);
@@ -112,6 +114,10 @@ public class ScrollTableView extends LinearLayout implements CustomTableView.OnP
             selectPositions.add(position);
         }
         contentView.setSelectPositions(selectPositions);
+    }
+
+    public ArrayList<Position> getSelectPositions() {
+        return selectPositions;
     }
 
 }
