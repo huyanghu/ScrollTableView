@@ -16,14 +16,17 @@ import java.util.ArrayList;
 
 public class ScrollTableView extends LinearLayout implements CustomTableView.OnPositionClickListener {
 
+    //各种对象
     private IHorizontalScrollView scrollHeaderHorizontal;
     private IHorizontalScrollView scrollHorizontal;
     private LeftTitleView headerVertical;
     private TopTitleView headerHorizontal;
     private CustomTableView contentView;
+    //被点击的坐标集合
     private ArrayList<Position> selectPositions;
     private ArrayList<String> topTitles;
     private ArrayList<String> leftTitles;
+    //数据源
     private ArrayList<ArrayList<String>> datas;
 
     public ScrollTableView(Context context) {
@@ -64,6 +67,7 @@ public class ScrollTableView extends LinearLayout implements CustomTableView.OnP
         headerVertical = (LeftTitleView) findViewById(R.id.header_vertical);
         headerHorizontal = (TopTitleView) findViewById(R.id.header_horizontal);
         contentView = (CustomTableView) findViewById(R.id.content_view);
+        //传递滚动行为
         scrollHorizontal.setIScroller(scrollHeaderHorizontal);
         scrollHeaderHorizontal.setIScroller(scrollHorizontal);
     }
@@ -99,6 +103,7 @@ public class ScrollTableView extends LinearLayout implements CustomTableView.OnP
         updateView();
     }
 
+    //刷新数据
     private void updateView() {
         headerVertical.updateTitles(leftTitles);
         headerHorizontal.updateTitles(topTitles);
@@ -106,6 +111,7 @@ public class ScrollTableView extends LinearLayout implements CustomTableView.OnP
         contentView.setDatas(datas);
     }
 
+    //记录坐标点
     @Override
     public void onPositionClick(Position position) {
         if (selectPositions.contains(position)) {
@@ -116,6 +122,7 @@ public class ScrollTableView extends LinearLayout implements CustomTableView.OnP
         contentView.setSelectPositions(selectPositions);
     }
 
+    //获取被点击的集合
     public ArrayList<Position> getSelectPositions() {
         return selectPositions;
     }

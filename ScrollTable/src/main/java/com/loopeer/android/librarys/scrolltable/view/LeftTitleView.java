@@ -96,20 +96,22 @@ public class LeftTitleView extends View {
 
     private void drawItem(Canvas canvas) {
         for (int rowIndex = 0; rowIndex < row; rowIndex++) {
+            //获取文字内容
             String content = titles.get(rowIndex);
+            //计算文字尺寸
             Paint.FontMetrics fontMetrics = mPaintTextNormal.getFontMetrics();
             float fontHeight = fontMetrics.bottom - fontMetrics.top;
             float textWidth = mPaintTextNormal.measureText(content);
             float y = rowIndex * (mItemHeight + mItemMargin) + mItemHeight - (mItemHeight - fontHeight) / 2 - fontMetrics.bottom - mItemHeight / 2 + getResources().getDimension(R.dimen.table_default_margin_top) - mItemMargin / 2 + mItemMargin;
 
             float x = mItemWidth - textWidth - 2 * mItemIndicatorCircleRadius - mItemIndicatorLineWidth - 12;
-
+            //画字
             canvas.drawText(content, x, y, mPaintTextNormal);
-
+            //画圈
             canvas.drawCircle(mItemWidth - mItemIndicatorLineWidth - mItemIndicatorCircleRadius,
                     rowIndex * (mItemHeight + mItemMargin) + getResources().getDimension(R.dimen.table_default_margin_top) - mItemMargin / 2 + mItemMargin,
                     mItemIndicatorCircleRadius, mPaintItemIndicatorCircle);
-
+            //规划矩阵
             canvas.drawRect(mItemWidth - mItemIndicatorLineWidth,
                     rowIndex * (mItemHeight + mItemMargin) + getResources().getDimension(R.dimen.table_default_margin_top) - mItemMargin / 2 - mItemMargin / 2 + mItemMargin,
                     mItemWidth,
