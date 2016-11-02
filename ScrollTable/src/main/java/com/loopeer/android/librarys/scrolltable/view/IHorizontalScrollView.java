@@ -1,10 +1,12 @@
-package com.loopeer.android.librarys.scrolltable;
+package com.loopeer.android.librarys.scrolltable.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.HorizontalScrollView;
 
-public class IHorizontalScrollView extends HorizontalScrollView implements IScroller{
+import com.loopeer.android.librarys.scrolltable.IScroller;
+
+public class IHorizontalScrollView extends HorizontalScrollView implements IScroller {
 
     private IScroller scroller;
 

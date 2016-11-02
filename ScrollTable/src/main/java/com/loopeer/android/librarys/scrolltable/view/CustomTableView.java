@@ -1,4 +1,4 @@
-package com.loopeer.android.librarys.scrolltable;
+package com.loopeer.android.librarys.scrolltable.view;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -8,6 +8,10 @@ import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
+
+import com.loopeer.android.librarys.scrolltable.Position;
+import com.loopeer.android.librarys.scrolltable.R;
+
 import java.util.ArrayList;
 
 public class CustomTableView extends View {
@@ -44,7 +48,7 @@ public class CustomTableView extends View {
 
     public CustomTableView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        
+
         init(context, attrs, defStyleAttr);
         setBackgroundColor(ContextCompat.getColor(getContext(), R.color.table_divider_color));
     }
@@ -57,15 +61,15 @@ public class CustomTableView extends View {
     }
 
     private void initData() {
-        mItemHeight =  getResources().getDimensionPixelSize(R.dimen.table_item_height);
+        mItemHeight = getResources().getDimensionPixelSize(R.dimen.table_item_height);
         mItemWidth = getResources().getDimensionPixelSize(R.dimen.table_item_width);
         mItemMargin = getResources().getDimensionPixelSize(R.dimen.table_item_margin);
     }
 
     private void initPaint() {
         mTextNormalColor = ContextCompat.getColor(getContext(), R.color.table_text_normal_color);
-        mTextUnableColor =  ContextCompat.getColor(getContext(), R.color.table_text_unable_color);
-        mTextSelectColor =  ContextCompat.getColor(getContext(), R.color.table_text_select_color);
+        mTextUnableColor = ContextCompat.getColor(getContext(), R.color.table_text_unable_color);
+        mTextSelectColor = ContextCompat.getColor(getContext(), R.color.table_text_select_color);
         mItemBgNormalColor = ContextCompat.getColor(getContext(), R.color.table_item_bg_normal_color);
         mItemBgSelectColor = ContextCompat.getColor(getContext(), R.color.table_item_bg_select_color);
         mTextNormal = getResources().getDimension(R.dimen.table_default_text_size);
@@ -99,7 +103,7 @@ public class CustomTableView extends View {
             for (int columnIndex = 0; columnIndex < column; columnIndex++) {
                 adJustSelectPaintColor(columnIndex, rowIndex);
 
-                float left =  mItemWidth * columnIndex + mItemMargin * columnIndex;
+                float left = mItemWidth * columnIndex + mItemMargin * columnIndex;
                 float right = left + mItemWidth;
                 float top = mItemHeight * rowIndex + mItemMargin * (rowIndex + 1);
                 float bottom = top + mItemHeight;

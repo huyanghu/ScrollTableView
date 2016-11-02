@@ -5,6 +5,12 @@ import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.LinearLayout;
+
+import com.loopeer.android.librarys.scrolltable.view.CustomTableView;
+import com.loopeer.android.librarys.scrolltable.view.IHorizontalScrollView;
+import com.loopeer.android.librarys.scrolltable.view.LeftTitleView;
+import com.loopeer.android.librarys.scrolltable.view.TopTitleView;
+
 import java.util.ArrayList;
 
 public class ScrollTableView extends LinearLayout implements CustomTableView.OnPositionClickListener {

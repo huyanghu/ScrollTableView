@@ -4,19 +4,18 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.loopeer.android.librarys.scrolltable.IHorizontalScrollView
+    <com.loopeer.android.librarys.scrolltable.view.IHorizontalScrollView
         android:id="@+id/scroll_header_horizontal"
         android:layout_width="match_parent"
         android:layout_height="@dimen/table_top_title_height"
         android:layout_marginLeft="@dimen/table_left_title_width"
         >
-
-        <com.loopeer.android.librarys.scrolltable.TopTitleView
+        <com.loopeer.android.librarys.scrolltable.view.TopTitleView
             android:id="@+id/header_horizontal"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"/>
 
-    </com.loopeer.android.librarys.scrolltable.IHorizontalScrollView>
+    </com.loopeer.android.librarys.scrolltable.view.IHorizontalScrollView>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -25,7 +24,7 @@
         android:orientation="horizontal">
 
 
-        <com.loopeer.android.librarys.scrolltable.VerticalScrollView
+        <com.loopeer.android.librarys.scrolltable.view.VerticalScrollView
             android:id="@+id/scroll_vertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
@@ -35,27 +34,27 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <com.loopeer.android.librarys.scrolltable.LeftTitleView
+                <com.loopeer.android.librarys.scrolltable.view.LeftTitleView
                     android:id="@+id/header_vertical"
                     android:layout_width="@dimen/table_left_title_width"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="24dp"/>
 
-                <com.loopeer.android.librarys.scrolltable.IHorizontalScrollView
+                <com.loopeer.android.librarys.scrolltable.view.IHorizontalScrollView
                     android:id="@+id/scroll_horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                    <com.loopeer.android.librarys.scrolltable.CustomTableView
+                    <com.loopeer.android.librarys.scrolltable.view.CustomTableView
                         android:layout_marginTop="@dimen/table_default_margin_top"
                         android:id="@+id/content_view"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
 
-                </com.loopeer.android.librarys.scrolltable.IHorizontalScrollView>
+                </com.loopeer.android.librarys.scrolltable.view.IHorizontalScrollView>
             </LinearLayout>
 
-        </com.loopeer.android.librarys.scrolltable.VerticalScrollView>
+        </com.loopeer.android.librarys.scrolltable.view.VerticalScrollView>
     </LinearLayout>
 
 </LinearLayout>

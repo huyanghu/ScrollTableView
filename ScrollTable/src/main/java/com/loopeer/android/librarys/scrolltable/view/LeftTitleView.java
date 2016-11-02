@@ -1,4 +1,4 @@
-package com.loopeer.android.librarys.scrolltable;
+package com.loopeer.android.librarys.scrolltable.view;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -8,6 +8,8 @@ import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
+
+import com.loopeer.android.librarys.scrolltable.R;
 
 import java.util.ArrayList;
 
@@ -51,7 +53,7 @@ public class LeftTitleView extends View {
     }
 
     private void initData() {
-        mItemHeight =  getResources().getDimensionPixelSize(R.dimen.table_item_height);
+        mItemHeight = getResources().getDimensionPixelSize(R.dimen.table_item_height);
         mItemWidth = getResources().getDimensionPixelSize(R.dimen.table_item_width);
         mItemMargin = getResources().getDimensionPixelSize(R.dimen.table_item_margin);
         mItemIndicatorCircleRadius = getResources().getDimensionPixelSize(R.dimen.table_header_circle_radius);

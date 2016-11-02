@@ -19,7 +19,7 @@ public class Position {
         if (!(o instanceof Position)) {
             return false;
         } else {
-            return x == ((Position)o).x && y == ((Position)o).y;
+            return x == ((Position) o).x && y == ((Position) o).y;
         }
     }
 }
